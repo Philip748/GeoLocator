@@ -23,13 +23,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int DEFAULT_UPDATE_INTERVAL = 5;
-    public static final int FASTEST_UPDATE_INTERVAL = 1;
+    public static final int DEFAULT_UPDATE_INTERVAL = 15;
+    public static final int FASTEST_UPDATE_INTERVAL = 5;
     private static final int PERMISSION_FINE_LOCATION = 99;
-    TextView tv_lat, tv_lon, tv_accuracy, tv_altitude, tv_updates, tv_bearing;
+    TextView tv_lat, tv_lon, tv_accuracy, tv_altitude, tv_updates, tv_bearing, tv_unidistance, tv_mcdistance,tv_homedistance, tv_unidirection, tv_mcdirection, tv_homedirection, tv_speed;
     Switch sw_locationsupdates;
 
     LocationRequest locationRequest;
+
+    Location uni, mc, home;
 
     // Google's API for location services. VERY IMPORTANT
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -47,7 +49,29 @@ public class MainActivity extends AppCompatActivity {
         tv_altitude = findViewById(R.id.tv_altitude);
         tv_updates = findViewById(R.id.tv_updates);
         tv_bearing = findViewById(R.id.tv_bearing);
+        tv_unidistance = findViewById(R.id.tv_unidistance);
+        tv_mcdistance = findViewById(R.id.tv_mcdistance);
+        tv_homedistance = findViewById(R.id.tv_homedistance);
+        tv_unidirection = findViewById(R.id.tv_unidirection);
+        tv_mcdirection = findViewById(R.id.tv_mcdirection);
+        tv_homedirection = findViewById(R.id.tv_homedirection);
+        tv_speed = findViewById(R.id.tv_speed);
         sw_locationsupdates = findViewById(R.id.sw_locationsupdates);
+
+        uni = new Location("University");
+        uni.setLatitude(55.870889);
+        uni.setLongitude(-4.288742);
+        uni.setAltitude(92.0);
+
+        mc = new Location("McDonalds");
+        mc.setLatitude(55.862795);
+        mc.setLongitude(-4.280469);
+        mc.setAltitude(75.0);
+
+        home = new Location("Home");
+        home.setLatitude(55.866866);
+        home.setLongitude(-4.290409);
+        home.setAltitude(79.0);
 
         // Set all properties of LocationRequest
         locationRequest = new LocationRequest();
@@ -82,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         tv_altitude.setText("Location is not being tracked");
         tv_accuracy.setText("Location is not being tracked");
         tv_updates.setText("Location is not being tracked");
+        tv_bearing.setText("Location is not being tracked");
+        tv_unidistance.setText("Location is not being tracked");
+        tv_mcdistance.setText("Location is not being tracked");
+        tv_homedistance.setText("Location is not being tracked");
 
         fusedLocationProviderClient.removeLocationUpdates(locationCallBack);
     }
@@ -146,6 +174,12 @@ public class MainActivity extends AppCompatActivity {
         tv_lat.setText(String.valueOf(location.getLatitude()));
         tv_lon.setText(String.valueOf(location.getLongitude()));
         tv_accuracy.setText(String.valueOf(location.getAccuracy()));
+        tv_unidistance.setText(String.valueOf(location.distanceTo(uni)) + "M");
+        tv_unidirection.setText(String.valueOf(location.bearingTo(uni)));
+        tv_mcdistance.setText(String.valueOf(location.distanceTo(mc)) + "M");
+        tv_mcdirection.setText(String.valueOf(location.bearingTo(mc)));
+        tv_homedistance.setText(String.valueOf(location.distanceTo(home)) + "M");
+        tv_homedirection.setText(String.valueOf(location.bearingTo(home)));
 
         if (location.hasAltitude()){
             tv_altitude.setText(String.valueOf(location.getAltitude()));
@@ -159,6 +193,12 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             tv_bearing.setText("NA");
+        }
+        if (location.hasSpeed()){
+            tv_speed.setText(String.valueOf(location.getSpeed()));
+        }
+        else {
+            tv_speed.setText("NA");
         }
     }
 }

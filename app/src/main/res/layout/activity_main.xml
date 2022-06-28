@@ -8,134 +8,239 @@
 
     <TextView
         android:id="@+id/tv_labellat"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Lat:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="0.00"
-        app:layout_constraintStart_toEndOf="@+id/tv_labellat"
+        android:text="Lat:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_labellon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_labellon"
-        android:layout_width="100dp"
+        android:id="@+id/tv_bearing"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="lon:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labellat" />
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintStart_toEndOf="@+id/tv_labelbearing"
+        app:layout_constraintTop_toTopOf="@+id/tv_labelbearing" />
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_labelspeed"
+        app:layout_constraintStart_toEndOf="@+id/tv_labelspeed"
+        app:layout_constraintTop_toTopOf="@+id/tv_labelspeed" />
 
     <TextView
         android:id="@+id/tv_lon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="0.00"
         app:layout_constraintStart_toEndOf="@+id/tv_labellon"
         app:layout_constraintTop_toBottomOf="@+id/tv_lat" />
 
     <TextView
-        android:id="@+id/tv_labelaltitude"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Altitude:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labellon" />
-
-    <TextView
         android:id="@+id/tv_altitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="0.00"
         app:layout_constraintStart_toEndOf="@+id/tv_labelaltitude"
         app:layout_constraintTop_toTopOf="@+id/tv_labelaltitude" />
 
     <TextView
-        android:id="@+id/tv_labelaccuracy"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Accuracy:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labelaltitude" />
-
-    <TextView
         android:id="@+id/tv_accuracy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="0.00"
         app:layout_constraintStart_toEndOf="@+id/tv_labelaccuracy"
         app:layout_constraintTop_toTopOf="@+id/tv_labelaccuracy" />
 
     <TextView
-        android:id="@+id/tv_labelbearing"
+        android:id="@+id/tv_lablemcdistance2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Distance to McDonalds:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lablehomedistance"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lableunidistance" />
+
+    <TextView
+        android:id="@+id/tv_lableunidistance"
         android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Distance to Uni:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelspeed" />
+
+    <TextView
+        android:id="@+id/tv_labellon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="lon:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_labelaltitude"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labellat" />
+
+    <TextView
+        android:id="@+id/tv_labelaltitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Altitude:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_labelaccuracy"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labellon" />
+
+    <TextView
+        android:id="@+id/tv_unidistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lableunidistance"
+        app:layout_constraintStart_toEndOf="@+id/tv_lableunidistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lableunidistance"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_unidirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lableunidistance"
+        app:layout_constraintStart_toEndOf="@+id/tv_unidistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lableunidistance"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_labelaccuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Accuracy:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_labelbearing"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelaltitude" />
+
+    <TextView
+        android:id="@+id/tv_mcdistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintStart_toEndOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintTop_toTopOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_mcdirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintStart_toEndOf="@+id/tv_mcdistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lablemcdistance2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_homedistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lablehomedistance"
+        app:layout_constraintStart_toEndOf="@+id/tv_lablehomedistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lablehomedistance"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_homedirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lablehomedistance"
+        app:layout_constraintStart_toEndOf="@+id/tv_homedistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lablehomedistance"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_labelbearing"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Bearing:"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lableunidistance"
         app:layout_constraintTop_toBottomOf="@+id/tv_labelaccuracy" />
 
     <TextView
-        android:id="@+id/tv_bearing"
+        android:id="@+id/tv_labelspeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.00"
-        app:layout_constraintStart_toEndOf="@+id/tv_labelbearing"
-        app:layout_constraintTop_toTopOf="@+id/tv_labelbearing" />
+        android:layout_marginTop="16dp"
+        android:text="Speed:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lableunidistance"
+        app:layout_constraintTop_toBottomOf="@+id/tv_labelbearing" />
 
     <TextView
-        android:id="@+id/tv_labelupdates"
-        android:layout_width="100dp"
+        android:id="@+id/tv_lablehomedistance"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Updates:"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:text="Distance to Home:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sw_locationsupdates" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_lablemcdistance2" />
 
     <TextView
-        android:id="@+id/tv_updates"
+        android:id="@+id/tv_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Off"
-        app:layout_constraintStart_toEndOf="@+id/tv_labelupdates"
-        app:layout_constraintTop_toTopOf="@+id/tv_labelupdates" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="0.00"
+        app:layout_constraintStart_toEndOf="@+id/tv_labellat"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/sw_locationsupdates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:checked="true"
         android:minHeight="48dp"
         android:text="Location Updates"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
-        android:id="@+id/tv_address"
+        android:id="@+id/tv_updates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/tv_lbladdress"
-        app:layout_constraintTop_toTopOf="@+id/tv_lbladdress" />
+        android:layout_marginStart="8dp"
+        android:text="Off"
+        app:layout_constraintStart_toEndOf="@+id/tv_labelupdates"
+        app:layout_constraintTop_toTopOf="@+id/tv_labelupdates" />
 
     <TextView
-        android:id="@+id/tv_lbladdress"
+        android:id="@+id/tv_labelupdates"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Address:"
+        android:layout_marginTop="4dp"
+        android:text="Updates:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_labelbearing" />
+        app:layout_constraintTop_toBottomOf="@+id/sw_locationsupdates" />
 
     <View
         android:id="@+id/divider"
@@ -146,7 +251,15 @@
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_lablehomedistance" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_lableunidistance"
+        app:layout_constraintTop_toTopOf="@+id/tv_lableunidistance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
