@@ -173,32 +173,67 @@ public class MainActivity extends AppCompatActivity {
     private void updateUIValues(Location location) {
         tv_lat.setText(String.valueOf(location.getLatitude()));
         tv_lon.setText(String.valueOf(location.getLongitude()));
-        tv_accuracy.setText(String.valueOf(location.getAccuracy()));
-        tv_unidistance.setText(String.valueOf(location.distanceTo(uni)) + "M");
-        tv_unidirection.setText(String.valueOf(location.bearingTo(uni)));
-        tv_mcdistance.setText(String.valueOf(location.distanceTo(mc)) + "M");
-        tv_mcdirection.setText(String.valueOf(location.bearingTo(mc)));
-        tv_homedistance.setText(String.valueOf(location.distanceTo(home)) + "M");
-        tv_homedirection.setText(String.valueOf(location.bearingTo(home)));
+        tv_accuracy.setText(String.format("%.02f",location.getAccuracy()) + " m");
+        tv_unidistance.setText(String.format("%.02f",location.distanceTo(uni)) + " m");
+        tv_unidirection.setText(turnBearingToDirection(location.bearingTo(uni)));
+        tv_mcdistance.setText(String.format("%.02f",location.distanceTo(mc)) + " m");
+        tv_mcdirection.setText(turnBearingToDirection(location.bearingTo(mc)));
+        tv_homedistance.setText(String.format("%.02f",location.distanceTo(home)) + " m");
+        tv_homedirection.setText(turnBearingToDirection(location.bearingTo(home)));
+
 
         if (location.hasAltitude()){
-            tv_altitude.setText(String.valueOf(location.getAltitude()));
+            tv_altitude.setText(String.format("%.02f",location.getAltitude()) + " m");
         }
         else {
             tv_altitude.setText("NA");
         }
 
         if (location.hasBearing()){
-            tv_bearing.setText(String.valueOf(location.getBearing()));
+            tv_bearing.setText(turnBearingToDirection(location.getBearing()));
         }
         else {
             tv_bearing.setText("NA");
         }
         if (location.hasSpeed()){
-            tv_speed.setText(String.valueOf(location.getSpeed()));
+            tv_speed.setText(String.format("%.02f",location.getSpeed()) + " m/s");
         }
         else {
             tv_speed.setText("NA");
+        }
+    }
+
+    public static boolean isBetween(float x, double lower, double upper) {
+        return lower <= x && x <= upper;
+    }
+
+    private String turnBearingToDirection(float bearing) {
+        if(isBetween(bearing, -22.5, 22.5) || isBetween(bearing, 337.5, 360)){
+            return "N";
+        }
+        else if(isBetween(bearing, 22.5, 67.5)){
+            return "NE";
+        }
+        else if(isBetween(bearing, 67.5, 112.5)){
+            return "E";
+        }
+        else if(isBetween(bearing, 112.5, 157.5)){
+            return "SE";
+        }
+        else if(isBetween(bearing, 157.5, 202.5) || isBetween(bearing, -180, -157.5)){
+            return "S";
+        }
+        else if(isBetween(bearing, -67.5, -22.5) || isBetween(bearing, 292.5, 337.5)){
+            return "NW";
+        }
+        else if(isBetween(bearing, -112.5, 67.5) || isBetween(bearing, 247.5, 292.5)){
+            return "W";
+        }
+        else if(isBetween(bearing, -157.5, -112.5) || isBetween(bearing, 202.5, 247.5)){
+            return "SW";
+        }
+        else{
+            return "Error";
         }
     }
 }

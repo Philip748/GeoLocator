@@ -114,11 +114,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="0.00"
         app:layout_constraintBottom_toBottomOf="@+id/tv_lableunidistance"
         app:layout_constraintStart_toEndOf="@+id/tv_unidistance"
         app:layout_constraintTop_toTopOf="@+id/tv_lableunidistance"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="..." />
 
     <TextView
         android:id="@+id/tv_labelaccuracy"
@@ -145,11 +145,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="0.00"
         app:layout_constraintBottom_toBottomOf="@+id/tv_lablemcdistance2"
         app:layout_constraintStart_toEndOf="@+id/tv_mcdistance"
         app:layout_constraintTop_toTopOf="@+id/tv_lablemcdistance2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="..." />
 
     <TextView
         android:id="@+id/tv_homedistance"
@@ -167,11 +167,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="0.00"
         app:layout_constraintBottom_toBottomOf="@+id/tv_lablehomedistance"
         app:layout_constraintStart_toEndOf="@+id/tv_homedistance"
         app:layout_constraintTop_toTopOf="@+id/tv_lablehomedistance"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="..." />
 
     <TextView
         android:id="@+id/tv_labelbearing"
@@ -195,7 +195,7 @@
         android:id="@+id/tv_lablehomedistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="16dp"
         android:text="Distance to Home:"
         app:layout_constraintStart_toStartOf="parent"
@@ -228,18 +228,18 @@
         android:id="@+id/tv_updates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Off"
+        android:layout_marginStart="20dp"
+        android:text="Location is being Tracked"
         app:layout_constraintStart_toEndOf="@+id/tv_labelupdates"
         app:layout_constraintTop_toTopOf="@+id/tv_labelupdates" />
 
     <TextView
         android:id="@+id/tv_labelupdates"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Updates:"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_lablehomedistance"
         app:layout_constraintTop_toBottomOf="@+id/sw_locationsupdates" />
 
     <View
